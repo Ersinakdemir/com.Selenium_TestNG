@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;

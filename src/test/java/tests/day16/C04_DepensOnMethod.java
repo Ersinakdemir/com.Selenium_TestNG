@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
