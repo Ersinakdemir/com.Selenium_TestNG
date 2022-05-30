@@ -28,5 +28,6 @@ public class C03_PageClassKullanimi {
 
         //login ola,adiginizi ttest edin
         Assert.assertTrue(faceBookPage.girilemediYaziElementi.isDisplayed());
+        Driver.clossDriver();
     }
 }

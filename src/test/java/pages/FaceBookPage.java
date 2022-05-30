@@ -9,6 +9,7 @@ public class FaceBookPage {
     public FaceBookPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
     @FindBy(xpath = "//button[@class='_42ft _4jy0 _9xo6 _4jy3 _4jy1 selected _51sy']")
     public WebElement cookiesAgree;
 
