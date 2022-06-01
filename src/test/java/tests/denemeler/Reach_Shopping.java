@@ -1,6 +1,10 @@
-package denemeler;
+package tests.denemeler;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Reach_ShoppingPage;
@@ -8,6 +12,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.text.DecimalFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -46,6 +51,7 @@ public class Reach_Shopping{
             System.out.println(rs.fiyatListesi.get(index).getText());
             fiyat.add(rs.fiyatListesi.get(index).getText());
         }*/
+        WebDriverWait wait =new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         while (sepetList.size()<5){
             int index = rnd.nextInt(rs.randomListe.size());
             if (!sepetList.contains(rs.ürünIsmi.get(index))){
@@ -53,9 +59,11 @@ public class Reach_Shopping{
                 System.out.println(rs.fiyatListesi.get(index).getText());
                 fiyat.add(rs.fiyatListesi.get(index).getText());
                 rs.randomListe.get(index).click();
-
-                Thread.sleep(1000);
-                rs.butonTiklama.click();
+//        WebElement itsGoneYaziElementi=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()=\"It's gone!\"]")));
+                //Thread.sleep(1000);
+                WebElement sepetKapatmaButonu =wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div/button/span")));
+                //rs.butonTiklama.click();
+                sepetKapatmaButonu.click();
 
             }
 
@@ -68,6 +76,7 @@ public class Reach_Shopping{
         // 6.Sonuçlar eşleşiyorsa  konsola test pass yazirin
         // 7.Checkout'a tıklayın
         rs.sepet.click();
+        System.out.println("toplam acrualden önce   "+rs.toplamFiyat.getText());
         double actualGesamtPreis = Double.parseDouble(rs.toplamFiyat.getText().substring(2));
 
         DecimalFormat df = new DecimalFormat("#.##");

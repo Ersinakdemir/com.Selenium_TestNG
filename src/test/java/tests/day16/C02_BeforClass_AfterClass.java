@@ -1,7 +1,7 @@
 package tests.day16;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.TestBase;
 

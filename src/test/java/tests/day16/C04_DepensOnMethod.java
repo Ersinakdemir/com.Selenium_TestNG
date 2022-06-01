@@ -1,17 +1,13 @@
 package tests.day16;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 import utilities.TestBase;
 
 import java.time.Duration;
@@ -51,7 +47,7 @@ public class C04_DepensOnMethod {
         WebElement sonucYaziElementi= driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         Assert.assertTrue(sonucYaziElementi.getText().contains("Nutella"));
     }
-    @Test
+    @Test(groups = {"grup1", "grup2"})
     public void test04(){
         System.out.println("bak bu calisti");
     }

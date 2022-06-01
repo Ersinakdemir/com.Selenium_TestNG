@@ -16,8 +16,18 @@ public class Driver {
     static methodlar kullanarak driver olusturupilgili ayarlarin yapilmasi ve
      enson da driver in kapatilmasi tercih edilmistir
 
+     POM de Driver classindski getDrfiver() nin obje olusturulmarak kullanilmasin
+     engellememk icin Simgelten Patter kullnnimi benimsenmistir
+
+
+Simgelten Patter : Tekli kullanim bir class in farkli classlardan obje olusturularak kullanimini engellememk icin kullanilir
+
+Bunu yapmak icin obj olusturmak icin gereklei olan constricter i private yaptigimizda baska classtan obje olusturulamasin diye
      */
     static WebDriver driver;
+    private Driver (){
+
+    }
     public static WebDriver getDriver(){
 
         if (driver==null){
@@ -26,13 +36,13 @@ public class Driver {
                     WebDriverManager.safaridriver().setup();
                     driver= new SafariDriver();
                     break;
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver= new ChromeDriver();
+                    break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
                     driver= new EdgeDriver();
-                    break;
-                case "headless-chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();

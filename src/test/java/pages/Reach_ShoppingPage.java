@@ -29,7 +29,7 @@ public class Reach_ShoppingPage {
     @FindBy (xpath = "//div[@class='sc-1h98xa9-3 VLMSP']")
     public WebElement sepet;
 
-    @FindBy(xpath = "//p[@class='sc-1h98xa9-9 jzywDV']")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[3]/div/p[1]")
     public WebElement toplamFiyat;
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[3]/button")

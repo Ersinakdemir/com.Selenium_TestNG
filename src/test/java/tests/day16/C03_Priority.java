@@ -22,7 +22,7 @@ public class C03_Priority extends TestBase {
         System.out.println("bestbuy");
         driver.get("https://www.bestbuy.com");
     }
-    @Test
+    @Test(groups = "grup1")
     public void techproedTesti() {
         System.out.println("techpro");
         driver.get("https://www.techproeducation.com");
